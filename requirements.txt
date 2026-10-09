@@ -1,0 +1,29 @@
+# Sora chatbot — minimal / non-forcing requirements
+# Install with:
+#   pip install -r requirements.txt --upgrade-strategy only-if-needed
+# This leaves already-installed packages (transformers 5.x, huggingface-hub 1.x,
+# gradio 6.x, diffusers, etc.) alone and only installs what is missing.
+
+# Core (already present in most Colab / ML images)
+torch>=2.1.0
+transformers>=4.40.0
+datasets>=2.19.0
+accelerate>=0.30.0
+peft>=0.11.0
+packaging>=23.0
+sentencepiece>=0.2.0
+protobuf>=4.25.0
+numpy>=1.26.0
+tqdm>=4.66.0
+
+# Optional — only needed for 4-bit training (CUDA). Skip on CPU / macOS ARM.
+bitsandbytes>=0.43.0; platform_system != "Darwin" or platform_machine != "arm64"
+
+# Optional voice + UI (code falls back to text-only / CLI if missing)
+edge-tts>=6.1.0
+soundfile>=0.12.1
+gradio>=4.44.0
+
+# NOTE: Do NOT install/upgrade ipython, traitlets, psutil, or jedi.
+# Colab already has them imported; upgrading them triggers the
+# "You must restart the runtime" warning.
