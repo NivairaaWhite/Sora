@@ -1,0 +1,23 @@
+# Install in Colab/local with:
+# pip install -r requirements.txt --upgrade-strategy only-if-needed
+# Core ML/runtime packages. Avoid forcing upgrades of Colab's preloaded IPython stack.
+torch>=2.1.0
+transformers>=4.45.0
+datasets>=2.19.0
+accelerate>=0.30.0
+peft>=0.13.0
+packaging>=23.0
+sentencepiece>=0.2.0
+protobuf>=4.25.0
+numpy>=1.26.0
+tqdm>=4.66.0
+
+# Optional Gradio web UI and voice. Code can run text-only without Edge TTS.
+gradio>=4.44.0
+edge-tts>=6.1.0
+
+# Optional for --use_4bit (install separately when using CUDA/QLoRA):
+# bitsandbytes>=0.43.0
+
+# Deliberately do not list/force-upgrade ipython, traitlets, psutil, or jedi;
+# Colab imports these packages before user notebook cells execute.
